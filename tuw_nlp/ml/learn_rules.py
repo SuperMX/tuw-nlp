@@ -63,14 +63,14 @@ def main():
     with TextTo4lang(
             lang=args.lang, nlp_cache=args.nlp_cache,
             cache_dir=args.cache_dir) as tfl:
-        with open(args.train_file) as f:
+        with open(args.train_file,encoding='utf-8') as f:
             for features, label in gen_events(
                     f, tfl, lexgraphs, preproc, inverse=args.inverse):
                 if features is None:
                     continue
                 rl.add_train_event(features, label)
 
-        with open(args.valid_file) as f:
+        with open(args.valid_file,encoding='utf-8') as f:
             for features, label in gen_events(
                     f, tfl, lexgraphs, preproc, inverse=args.inverse):
                 if features is None:

@@ -133,7 +133,7 @@ class IRTGGrammar():
     def write_input_file(self, transformed_input, input_fn, input_int):
         input_alg = self.interpretations[input_int]
         dummy_input = get_dummy_input(input_alg)
-        with open(input_fn, 'w') as f:
+        with open(input_fn, 'w', encoding="utf-8") as f:
             for line in self.gen_input_header(input_int):
                 f.write(f"{line}\n")
             f.write('\n')
@@ -141,7 +141,7 @@ class IRTGGrammar():
             f.write(f"{dummy_input}\n")
 
     def write_grammar_file(self, grammar_fn):
-        with open(grammar_fn, 'w') as f:
+        with open(grammar_fn, 'w', encoding="utf-8") as f:
             for line in self.gen_grammar_header():
                 f.write(f"{line}\n")
             f.write('\n')
